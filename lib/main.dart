@@ -6,11 +6,22 @@ void main() {
   runApp(MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MainAppState();
+  }
+}
+
+class MainAppState extends State<MainApp> {
   var questionIndex = 0;
 
   void answerQuestion() {
-    questionIndex = Random().nextInt(2);
+    setState(() {
+      questionIndex = Random().nextInt(2);
+    });
+    print(questionIndex);
   }
 
   @override
@@ -27,16 +38,8 @@ class MainApp extends StatelessWidget {
               centerTitle: true,
             ),
             body: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              spacing: 20,
               children: [
-                Text(questions[questionIndex],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      background: Paint()..color = Colors.red,
-                    )),
+                Text(questions[questionIndex]),
                 ElevatedButton(
                   onPressed: answerQuestion,
                   child: Text("This is a button"),
