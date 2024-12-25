@@ -1,56 +1,108 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MainApp());
-}
+void main() => runApp(const MyApp());
 
-class MainApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MainAppState();
-  }
-}
-
-class MainAppState extends State<MainApp> {
-  var questionIndex = 0;
-
-  void answerQuestion() {
-    setState(() {
-      questionIndex = Random().nextInt(2);
-    });
-    print(questionIndex);
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      "What's your favorite color?",
-      "What's your favorite animal?",
-    ];
+    const String appTitle = 'Flutter layout demo';
     return MaterialApp(
+        title: appTitle,
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: Text("This is a title"),
-              backgroundColor: Colors.blue,
-              centerTitle: true,
+              backgroundColor: Colors.teal,
+              leading: Icon(Icons.menu),
+              title: Text("hello"),
+              actions: [
+                Icon(Icons.search),
+                Icon(Icons.more_vert),
+              ],
+              elevation: 0,
             ),
             body: Column(
               children: [
-                Text(questions[questionIndex]),
-                ElevatedButton(
-                  onPressed: answerQuestion,
-                  child: Text("This is a button"),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
                 ),
-                ElevatedButton(
-                  onPressed: answerQuestion,
-                  child: Text("This is a button"),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.yellow,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
                 ),
-                ElevatedButton(
-                  onPressed: answerQuestion,
-                  child: Text("This is a button"),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
                 ),
               ],
             )));
