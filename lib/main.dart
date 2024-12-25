@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
               ],
               elevation: 0,
             ),
-            body: Column(
+            body: ListView(
+              // mainAxisSize: MainAxisSize.,
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
                   margin: EdgeInsets.all(10),
@@ -39,16 +41,6 @@ class MyApp extends StatelessWidget {
                   height: 100,
                   decoration: BoxDecoration(
                       color: Colors.yellow,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 2,
-                      )),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  height: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.blueAccent,
                       border: Border.all(
                         color: Colors.black,
                         width: 2,
