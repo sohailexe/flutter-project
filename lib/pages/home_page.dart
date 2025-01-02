@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/utils/dialog_box.dart';
+import 'package:flutter_application_1/utils/todo_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,7 +10,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List toDoList
+  final _controller = TextEditingController();
+
+  List<List<dynamic>> toDoList = [
+    ["Make tutorial", false],
+    ["To Exercise", false],
+    ["Make tutorial", false],
+  ];
+
+  void handleSave() {
+    setState(() {
+      toDoList.add([_controller.text, false]);
+      _controller.clear();
+    });
+    Navigator.pop(context);
+  }
+
+  void addNewTask() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return DialogBox(
+            controller: _controller,
+            onSave: handleSave,
+            onCancel: () {
+              Navigator.pop(context);
+            },
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +48,22 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.yellow,
           title: Center(child: Text('TO DO')),
         ),
-        body: ListView.builder());
+        floatingActionButton: FloatingActionButton(
+          onPressed: addNewTask,
+          child: Icon(Icons.add),
+        ),
+        body: ListView.builder(
+          itemCount: toDoList.length,
+          itemBuilder: (context, index) {
+            return ToDoTile(
+                taskName: toDoList[index][0],
+                taskCompleted: toDoList[index][1],
+                onChanged: (value) {
+                  setState(() {
+                    toDoList[index][1] = value;
+                  });
+                });
+          },
+        ));
   }
 }

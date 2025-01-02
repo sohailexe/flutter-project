@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Eventify',
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      theme: ThemeData(primarySwatch: Colors.yellow),
+      theme: ThemeData(primaryColor: Colors.yellow),
     );
   }
 }
